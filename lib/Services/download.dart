@@ -1,30 +1,11 @@
-/*
- *  This file is part of BlackHole (https://github.com/Sangwan5688/BlackHole).
- * 
- * BlackHole is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * BlackHole is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public License
- * along with BlackHole.  If not, see <http://www.gnu.org/licenses/>.
- * 
- * Copyright (c) 2021-2022, Ankit Sangwan
- */
-
 import 'dart:developer';
 import 'dart:io';
 
 import 'package:audiotagger/audiotagger.dart';
 import 'package:audiotagger/models/tag.dart';
-import 'package:blackhole/CustomWidgets/snackbar.dart';
-import 'package:blackhole/Helpers/lyrics.dart';
-import 'package:blackhole/Services/ext_storage_provider.dart';
+import 'package:imbisha/CustomWidgets/snackbar.dart';
+import 'package:imbisha/Helpers/lyrics.dart';
+import 'package:imbisha/Services/ext_storage_provider.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter_downloader/flutter_downloader.dart';
@@ -199,7 +180,7 @@ class Download with ChangeNotifier {
                         children: [
                           TextButton(
                             style: TextButton.styleFrom(
-                              foregroundColor: Theme.of(context).brightness ==
+                              primary: Theme.of(context).brightness ==
                                       Brightness.dark
                                   ? Colors.white
                                   : Colors.grey[700],
@@ -216,7 +197,7 @@ class Download with ChangeNotifier {
                           ),
                           TextButton(
                             style: TextButton.styleFrom(
-                              foregroundColor: Theme.of(context).brightness ==
+                              primary: Theme.of(context).brightness ==
                                       Brightness.dark
                                   ? Colors.white
                                   : Colors.grey[700],
@@ -233,7 +214,7 @@ class Download with ChangeNotifier {
                           const SizedBox(width: 5.0),
                           TextButton(
                             style: TextButton.styleFrom(
-                              foregroundColor: Colors.white,
+                              primary: Colors.white,
                               backgroundColor:
                                   Theme.of(context).colorScheme.secondary,
                             ),

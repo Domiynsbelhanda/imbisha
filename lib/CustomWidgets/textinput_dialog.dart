@@ -1,22 +1,3 @@
-/*
- *  This file is part of BlackHole (https://github.com/Sangwan5688/BlackHole).
- * 
- * BlackHole is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * BlackHole is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public License
- * along with BlackHole.  If not, see <http://www.gnu.org/licenses/>.
- * 
- * Copyright (c) 2021-2022, Ankit Sangwan
- */
-
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -62,7 +43,7 @@ Future<void> showTextInputDialog({
         actions: [
           TextButton(
             style: TextButton.styleFrom(
-              foregroundColor: Theme.of(context).brightness == Brightness.dark
+              primary: Theme.of(context).brightness == Brightness.dark
                   ? Colors.white
                   : Colors.grey[700],
             ),
@@ -73,7 +54,7 @@ Future<void> showTextInputDialog({
           ),
           TextButton(
             style: TextButton.styleFrom(
-              foregroundColor:
+              primary:
                   Theme.of(context).colorScheme.secondary == Colors.white
                       ? Colors.black
                       : Colors.white,

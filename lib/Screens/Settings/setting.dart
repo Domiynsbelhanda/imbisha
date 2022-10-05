@@ -1,39 +1,20 @@
-/*
- *  This file is part of BlackHole (https://github.com/Sangwan5688/BlackHole).
- * 
- * BlackHole is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * BlackHole is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public License
- * along with BlackHole.  If not, see <http://www.gnu.org/licenses/>.
- * 
- * Copyright (c) 2021-2022, Ankit Sangwan
- */
-
 import 'dart:io';
 
-import 'package:blackhole/CustomWidgets/copy_clipboard.dart';
-import 'package:blackhole/CustomWidgets/gradient_containers.dart';
-import 'package:blackhole/CustomWidgets/popup.dart';
-import 'package:blackhole/CustomWidgets/snackbar.dart';
-import 'package:blackhole/CustomWidgets/textinput_dialog.dart';
-import 'package:blackhole/Helpers/backup_restore.dart';
-import 'package:blackhole/Helpers/config.dart';
-// import 'package:blackhole/Helpers/countrycodes.dart';
-import 'package:blackhole/Helpers/picker.dart';
-import 'package:blackhole/Helpers/supabase.dart';
-import 'package:blackhole/Screens/Home/saavn.dart' as home_screen;
-import 'package:blackhole/Screens/Settings/player_gradient.dart';
-// import 'package:blackhole/Screens/Top Charts/top.dart' as top_screen;
-import 'package:blackhole/Services/ext_storage_provider.dart';
-import 'package:blackhole/main.dart';
+import 'package:imbisha/CustomWidgets/copy_clipboard.dart';
+import 'package:imbisha/CustomWidgets/gradient_containers.dart';
+import 'package:imbisha/CustomWidgets/popup.dart';
+import 'package:imbisha/CustomWidgets/snackbar.dart';
+import 'package:imbisha/CustomWidgets/textinput_dialog.dart';
+import 'package:imbisha/Helpers/backup_restore.dart';
+import 'package:imbisha/Helpers/config.dart';
+// import 'package:imbisha/Helpers/countrycodes.dart';
+import 'package:imbisha/Helpers/picker.dart';
+import 'package:imbisha/Helpers/supabase.dart';
+import 'package:imbisha/Screens/Home/saavn.dart' as home_screen;
+import 'package:imbisha/Screens/Settings/player_gradient.dart';
+// import 'package:imbisha/Screens/Top Charts/top.dart' as top_screen;
+import 'package:imbisha/Services/ext_storage_provider.dart';
+import 'package:imbisha/main.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -1118,7 +1099,7 @@ class _SettingPageState extends State<SettingPage> {
                                                   ),
                                                   TextButton(
                                                     style: TextButton.styleFrom(
-                                                      foregroundColor: Theme.of(
+                                                      primary: Theme.of(
                                                                 context,
                                                               )
                                                                   .colorScheme
@@ -1425,7 +1406,7 @@ class _SettingPageState extends State<SettingPage> {
                                       actions: [
                                         TextButton(
                                           style: TextButton.styleFrom(
-                                            foregroundColor:
+                                            primary:
                                                 Theme.of(context).brightness ==
                                                         Brightness.dark
                                                     ? Colors.white
@@ -3023,7 +3004,7 @@ class _SettingPageState extends State<SettingPage> {
                                     actions: [
                                       TextButton(
                                         style: TextButton.styleFrom(
-                                          foregroundColor:
+                                          primary:
                                               Theme.of(context).brightness ==
                                                       Brightness.dark
                                                   ? Colors.white
@@ -3323,7 +3304,7 @@ class _SettingPageState extends State<SettingPage> {
                                             children: [
                                               TextButton(
                                                 style: TextButton.styleFrom(
-                                                  foregroundColor:
+                                                  primary:
                                                       Theme.of(context)
                                                           .colorScheme
                                                           .secondary,
@@ -3685,7 +3666,7 @@ class _SettingPageState extends State<SettingPage> {
                           },
                           trailing: TextButton(
                             style: TextButton.styleFrom(
-                              foregroundColor: Theme.of(context).brightness ==
+                              primary: Theme.of(context).brightness ==
                                       Brightness.dark
                                   ? Colors.white
                                   : Colors.grey[700],
@@ -3752,7 +3733,7 @@ class _SettingPageState extends State<SettingPage> {
                                                 Navigator.pop(context);
                                                 launchUrl(
                                                   Uri.parse(
-                                                    'https://mail.google.com/mail/?extsrc=mailto&url=mailto%3A%3Fto%3Dblackholeyoucantescape%40gmail.com%26subject%3DRegarding%2520Mobile%2520App',
+                                                    'https://mail.google.com/mail/?extsrc=mailto&url=mailto%3A%3Fto%3Dyouness.dominique%40gmail.com%26subject%3DImbisha%2520Mobile%2520App',
                                                   ),
                                                   mode: LaunchMode
                                                       .externalApplication,

@@ -1424,7 +1424,7 @@ class _SettingPageState extends State<SettingPage> {
                                         ),
                                         TextButton(
                                           style: TextButton.styleFrom(
-                                            foregroundColor: Theme.of(context)
+                                            primary: Theme.of(context)
                                                         .colorScheme
                                                         .secondary ==
                                                     Colors.white
@@ -1796,7 +1796,7 @@ class _SettingPageState extends State<SettingPage> {
                                             children: [
                                               TextButton(
                                                 style: TextButton.styleFrom(
-                                                  foregroundColor:
+                                                  primary:
                                                       Theme.of(context)
                                                           .colorScheme
                                                           .secondary,
@@ -1813,7 +1813,7 @@ class _SettingPageState extends State<SettingPage> {
                                               ),
                                               TextButton(
                                                 style: TextButton.styleFrom(
-                                                  foregroundColor:
+                                                  primary:
                                                       Theme.of(context)
                                                           .colorScheme
                                                           .secondary,
@@ -2198,7 +2198,7 @@ class _SettingPageState extends State<SettingPage> {
                           subtitle: Text(downloadPath),
                           trailing: TextButton(
                             style: TextButton.styleFrom(
-                              foregroundColor: Theme.of(context).brightness ==
+                              primary: Theme.of(context).brightness ==
                                       Brightness.dark
                                   ? Colors.white
                                   : Colors.grey[700],
@@ -3022,7 +3022,7 @@ class _SettingPageState extends State<SettingPage> {
                                       ),
                                       TextButton(
                                         style: TextButton.styleFrom(
-                                          foregroundColor: Theme.of(context)
+                                          primary: Theme.of(context)
                                                       .colorScheme
                                                       .secondary ==
                                                   Colors.white
@@ -3321,7 +3321,7 @@ class _SettingPageState extends State<SettingPage> {
                                               ),
                                               TextButton(
                                                 style: TextButton.styleFrom(
-                                                  foregroundColor:
+                                                  primary:
                                                       Theme.of(context)
                                                           .colorScheme
                                                           .secondary,
@@ -3400,7 +3400,7 @@ class _SettingPageState extends State<SettingPage> {
                           subtitle: Text(autoBackPath),
                           trailing: TextButton(
                             style: TextButton.styleFrom(
-                              foregroundColor: Theme.of(context).brightness ==
+                              primary: Theme.of(context).brightness ==
                                       Brightness.dark
                                   ? Colors.white
                                   : Colors.grey[700],

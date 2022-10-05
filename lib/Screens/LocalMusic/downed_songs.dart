@@ -1,35 +1,16 @@
-/*
- *  This file is part of BlackHole (https://github.com/Sangwan5688/BlackHole).
- * 
- * BlackHole is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * BlackHole is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public License
- * along with BlackHole.  If not, see <http://www.gnu.org/licenses/>.
- * 
- * Copyright (c) 2021-2022, Ankit Sangwan
- */
-
 import 'dart:developer';
 
-import 'package:blackhole/CustomWidgets/add_playlist.dart';
-import 'package:blackhole/CustomWidgets/custom_physics.dart';
-import 'package:blackhole/CustomWidgets/data_search.dart';
-import 'package:blackhole/CustomWidgets/empty_screen.dart';
-import 'package:blackhole/CustomWidgets/gradient_containers.dart';
-import 'package:blackhole/CustomWidgets/miniplayer.dart';
-import 'package:blackhole/CustomWidgets/playlist_head.dart';
-import 'package:blackhole/CustomWidgets/snackbar.dart';
-import 'package:blackhole/Helpers/audio_query.dart';
-import 'package:blackhole/Screens/LocalMusic/localplaylists.dart';
-import 'package:blackhole/Screens/Player/audioplayer.dart';
+import 'package:imbisha/CustomWidgets/add_playlist.dart';
+import 'package:imbisha/CustomWidgets/custom_physics.dart';
+import 'package:imbisha/CustomWidgets/data_search.dart';
+import 'package:imbisha/CustomWidgets/empty_screen.dart';
+import 'package:imbisha/CustomWidgets/gradient_containers.dart';
+import 'package:imbisha/CustomWidgets/miniplayer.dart';
+import 'package:imbisha/CustomWidgets/playlist_head.dart';
+import 'package:imbisha/CustomWidgets/snackbar.dart';
+import 'package:imbisha/Helpers/audio_query.dart';
+import 'package:imbisha/Screens/LocalMusic/localplaylists.dart';
+import 'package:imbisha/Screens/Player/audioplayer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';

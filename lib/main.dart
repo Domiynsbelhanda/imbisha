@@ -31,11 +31,8 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Paint.enableDithering = true;
 
-  if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
-    await Hive.initFlutter('Imbisha');
-  } else {
-    await Hive.initFlutter();
-  }
+  await Hive.initFlutter();
+
   await openHiveBox('settings');
   await openHiveBox('downloads');
   await openHiveBox('Favorite Songs');
@@ -71,12 +68,12 @@ Future<void> startService() async {
     builder: () => AudioPlayerHandlerImpl(),
     config: AudioServiceConfig(
       androidNotificationChannelId: 'com.shadow.blackhole.channel.audio',
-      androidNotificationChannelName: 'BlackHole',
+      androidNotificationChannelName: 'Imbisha Music',
       androidNotificationOngoing: true,
       androidNotificationIcon: 'drawable/ic_stat_music_note',
       androidShowNotificationBadge: true,
-      // androidStopForegroundOnPause: Hive.box('settings')
-      // .get('stopServiceOnPause', defaultValue: true) as bool,
+      androidStopForegroundOnPause: Hive.box('settings')
+      .get('stopServiceOnPause', defaultValue: true) as bool,
       notificationColor: Colors.grey[900],
     ),
   );
@@ -160,9 +157,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   Widget initialFuntion() {
-    return Hive.box('settings').get('userId') != null
-        ? HomePage()
-        : AuthScreen();
+    return HomePage();
   }
 
   @override

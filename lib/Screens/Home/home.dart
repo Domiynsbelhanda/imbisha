@@ -1,42 +1,23 @@
-/*
- *  This file is part of BlackHole (https://github.com/Sangwan5688/BlackHole).
- * 
- * BlackHole is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * BlackHole is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public License
- * along with BlackHole.  If not, see <http://www.gnu.org/licenses/>.
- * 
- * Copyright (c) 2021-2022, Ankit Sangwan
- */
-
 import 'dart:io';
 import 'dart:math';
 
-import 'package:blackhole/CustomWidgets/custom_physics.dart';
-import 'package:blackhole/CustomWidgets/gradient_containers.dart';
-import 'package:blackhole/CustomWidgets/miniplayer.dart';
-import 'package:blackhole/CustomWidgets/snackbar.dart';
-import 'package:blackhole/CustomWidgets/textinput_dialog.dart';
-import 'package:blackhole/Helpers/backup_restore.dart';
-import 'package:blackhole/Helpers/downloads_checker.dart';
-import 'package:blackhole/Helpers/extensions.dart';
-import 'package:blackhole/Helpers/supabase.dart';
-import 'package:blackhole/Screens/Home/saavn.dart';
-import 'package:blackhole/Screens/Library/library.dart';
-import 'package:blackhole/Screens/LocalMusic/downed_songs.dart';
-import 'package:blackhole/Screens/Search/search.dart';
-import 'package:blackhole/Screens/Settings/setting.dart';
-import 'package:blackhole/Screens/Top Charts/top.dart';
-import 'package:blackhole/Screens/YouTube/youtube_home.dart';
-import 'package:blackhole/Services/ext_storage_provider.dart';
+import 'package:imbisha/CustomWidgets/custom_physics.dart';
+import 'package:imbisha/CustomWidgets/gradient_containers.dart';
+import 'package:imbisha/CustomWidgets/miniplayer.dart';
+import 'package:imbisha/CustomWidgets/snackbar.dart';
+import 'package:imbisha/CustomWidgets/textinput_dialog.dart';
+import 'package:imbisha/Helpers/backup_restore.dart';
+import 'package:imbisha/Helpers/downloads_checker.dart';
+import 'package:imbisha/Helpers/extensions.dart';
+import 'package:imbisha/Helpers/supabase.dart';
+import 'package:imbisha/Screens/Home/saavn.dart';
+import 'package:imbisha/Screens/Library/library.dart';
+import 'package:imbisha/Screens/LocalMusic/downed_songs.dart';
+import 'package:imbisha/Screens/Search/search.dart';
+import 'package:imbisha/Screens/Settings/setting.dart';
+import 'package:imbisha/Screens/Top Charts/top.dart';
+import 'package:imbisha/Screens/YouTube/youtube_home.dart';
+import 'package:imbisha/Services/ext_storage_provider.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

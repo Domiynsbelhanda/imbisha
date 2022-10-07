@@ -251,108 +251,106 @@ class _AlbumsTabState extends State<AlbumsTab>
         ? MediaQuery.of(context).size.width / 2
         : MediaQuery.of(context).size.height / 2.5;
     if (boxSize > 250) boxSize = 250;
-    return GridView.builder(
-      gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: 200,
-          childAspectRatio: 3 / 2,
-          crossAxisSpacing: 20,
-          mainAxisSpacing: 20),
-      physics: const BouncingScrollPhysics(),
-      padding: const EdgeInsets.only(top: 20, bottom: 10),
-      shrinkWrap: true,
-      itemCount: widget.albumsList.length < 20 ? widget.albumsList.length : 20,
-      itemBuilder: (context, index) {
-        return GestureDetector(
-          child: SizedBox(
-            width: boxSize - 30,
-            child: HoverBox(
+    return SizedBox(
+      child: GridView.builder(
+        gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+            maxCrossAxisExtent: 200,
+            childAspectRatio: 1.65 / 2,
+            crossAxisSpacing: 20,
+            mainAxisSpacing: 20),
+        physics: const BouncingScrollPhysics(),
+        padding: const EdgeInsets.only(top: 20, bottom: 10),
+        shrinkWrap: true,
+        itemCount: widget.albumsList.length < 20 ? widget.albumsList.length : 20,
+        itemBuilder: (context, index) {
+          return GestureDetector(
+            child: Container(
+              width: boxSize - 30,
               child: Card(
-                elevation: 5,
-                color: Colors.black,
+                elevation: 0,
+                margin: EdgeInsets.zero,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(
                     10.0,
                   ),
                 ),
                 clipBehavior: Clip.antiAlias,
-                child: Image(
-                  image: FileImage(
-                      File(
-                          '${widget.tempPath}/${widget.albums[widget.albumsList[index]]![0].displayNameWOExt}.jpg'
-                      )
-                  ),
-                ),
-                ),
-              builder: (BuildContext context, bool isHover, Widget? child) {
-                return Card(
-                  color: isHover ? null : Colors.transparent,
-                  elevation: 0,
-                  margin: EdgeInsets.zero,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(
-                      10.0,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox.square(
+                      dimension: boxSize - 30,
+                      child: FutureBuilder(
+                        builder: (context, element){
+
+                          try{
+                            return Image(
+                              image: FileImage(
+                                  File(
+                                      '${widget.tempPath}/${widget.albums[widget.albumsList[index]]![0].displayNameWOExt}.jpg'
+                                  )
+                              ),
+                            );
+                          } catch(e) {
+                            return const Image(
+                              image: AssetImage(
+                                'assets/album.png',
+                              ),
+                            );
+                          }
+                        },
+                      ),
                     ),
-                  ),
-                  clipBehavior: Clip.antiAlias,
-                  child: Column(
-                    children: [
-                      Stack(
+                    SizedBox(height: 4.0,),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
                         children: [
-                          SizedBox.square(
-                            dimension: isHover ? boxSize - 25 : boxSize - 30,
-                            child: child,
+                          Text(
+                            widget.albumsList[index],
+                            textAlign: TextAlign.start,
+                            softWrap: false,
+                            overflow: TextOverflow.ellipsis,
+                            style: const TextStyle(
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
+                          Text(
+                            '${widget.albums[widget.albumsList[index]]!.length} ${AppLocalizations.of(context)!.songs}',
+                            textAlign: TextAlign.center,
+                            softWrap: false,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                              fontSize: 11,
+                              color: Theme.of(context)
+                                  .textTheme
+                                  .caption!
+                                  .color,
+                            ),
+                          )
                         ],
                       ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Text(
-                              widget.albumsList[index],
-                              textAlign: TextAlign.center,
-                              softWrap: false,
-                              overflow: TextOverflow.ellipsis,
-                              style: const TextStyle(
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                              Text(
-                                '${widget.albums[widget.albumsList[index]]!.length} ${AppLocalizations.of(context)!.songs}',
-                                textAlign: TextAlign.center,
-                                softWrap: false,
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(
-                                  fontSize: 11,
-                                  color: Theme.of(context)
-                                      .textTheme
-                                      .caption!
-                                      .color,
-                                ),
-                              )
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                );
-              },
-            ),
-          ),
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => DownloadedSongs(
-                  title: widget.albumsList[index],
-                  cachedSongs: widget.albums[widget.albumsList[index]],
+                    ),
+                  ],
                 ),
               ),
-            );
-          },
-        );
-      },
+            ),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DownloadedSongs(
+                    title: widget.albumsList[index],
+                    cachedSongs: widget.albums[widget.albumsList[index]],
+                  ),
+                ),
+              );
+            },
+          );
+        },
+      ),
     );
   }
 }

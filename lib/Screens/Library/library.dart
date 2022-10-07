@@ -280,28 +280,20 @@ class _AlbumsTabState extends State<AlbumsTab>
                   children: [
                     SizedBox.square(
                       dimension: boxSize - 30,
-                      child: FutureBuilder(
-                        builder: (context, element){
-
-                          try{
-                            return Image(
-                              image: FileImage(
-                                  File(
-                                      '${widget.tempPath}/${widget.albums[widget.albumsList[index]]![0].displayNameWOExt}.jpg'
-                                  )
-                              ),
-                            );
-                          } catch(e) {
-                            return const Image(
-                              image: AssetImage(
-                                'assets/album.png',
-                              ),
-                            );
-                          }
+                      child: Image(
+                        image: FileImage(
+                            File(
+                                '${widget.tempPath}/${widget.albums[widget.albumsList[index]]![0].displayNameWOExt}.jpg'
+                            )
+                        ),
+                        errorBuilder: (context, exception, stackTrace) {
+                          return const Image(
+                            image: AssetImage('assets/cover.jpg'),
+                          );
                         },
                       ),
                     ),
-                    SizedBox(height: 4.0,),
+                    const SizedBox(height: 4.0,),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 10.0),
                       child: Column(

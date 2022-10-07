@@ -29,7 +29,7 @@ class _LibraryPageState extends State<LibraryPage> {
               color: Theme.of(context).iconTheme.color,
             ),
           ),
-          centerTitle: true,
+          centerTitle: false,
           backgroundColor: Colors.transparent,
           elevation: 0,
           automaticallyImplyLeading: false,

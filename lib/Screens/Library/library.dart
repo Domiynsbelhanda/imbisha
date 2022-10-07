@@ -249,7 +249,7 @@ class _AlbumsTabState extends State<AlbumsTab>
       padding: const EdgeInsets.only(top: 20, bottom: 10),
       shrinkWrap: true,
       itemExtent: 70.0,
-      itemCount: widget.albumsList.length,
+      itemCount: 10,
       itemBuilder: (context, index) {
         return ListTile(
           leading: OfflineAudioQuery.offlineArtworkWidget(

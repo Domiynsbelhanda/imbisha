@@ -523,22 +523,22 @@ class _HomePageState extends State<HomePage> {
                               ),
                         destinations: [
                           NavigationRailDestination(
-                            icon: const Icon(Icons.home_rounded),
-                            label: Text(AppLocalizations.of(context)!.home),
-                          ),
-                          NavigationRailDestination(
-                            icon: const Icon(Icons.trending_up_rounded),
-                            label: Text(
-                              AppLocalizations.of(context)!.topCharts,
-                            ),
+                            icon: const Icon(Icons.my_library_music_rounded),
+                            label: Text(AppLocalizations.of(context)!.library),
                           ),
                           NavigationRailDestination(
                             icon: const Icon(MdiIcons.youtube),
-                            label: Text(AppLocalizations.of(context)!.youTube),
+                            label: Text(
+                              AppLocalizations.of(context)!.youTube,
+                            ),
                           ),
                           NavigationRailDestination(
-                            icon: const Icon(Icons.my_library_music_rounded),
-                            label: Text(AppLocalizations.of(context)!.library),
+                            icon: const Icon(Icons.search),
+                            label: Text(AppLocalizations.of(context)!.search),
+                          ),
+                          NavigationRailDestination(
+                            icon: const Icon(Icons.settings),
+                            label: Text(AppLocalizations.of(context)!.settings),
                           ),
                         ],
                       );
@@ -555,6 +555,8 @@ class _HomePageState extends State<HomePage> {
                           },
                           controller: _pageController,
                           children: [
+                            const LibraryPage(),
+                            const YouTube(),
                             Stack(
                               children: [
                                 checkVersion(),
@@ -837,11 +839,7 @@ class _HomePageState extends State<HomePage> {
                                   ),
                               ],
                             ),
-                            TopCharts(
-                              pageController: _pageController,
-                            ),
-                            const YouTube(),
-                            const LibraryPage(),
+                            const SettingPage()
                           ],
                         ),
                       ),

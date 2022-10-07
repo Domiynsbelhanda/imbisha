@@ -244,12 +244,16 @@ class _AlbumsTabState extends State<AlbumsTab>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return ListView.builder(
+    return GridView.builder(
+      gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+          maxCrossAxisExtent: 200,
+          childAspectRatio: 3 / 2,
+          crossAxisSpacing: 20,
+          mainAxisSpacing: 20),
       physics: const BouncingScrollPhysics(),
       padding: const EdgeInsets.only(top: 20, bottom: 10),
       shrinkWrap: true,
-      itemExtent: 70.0,
-      itemCount: 10,
+      itemCount: widget.albumsList.length < 20 ? widget.albumsList.length : 20,
       itemBuilder: (context, index) {
         return ListTile(
           leading: OfflineAudioQuery.offlineArtworkWidget(

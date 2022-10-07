@@ -11,8 +11,6 @@ import 'package:imbisha/Screens/Library/downloads.dart';
 import 'package:imbisha/Screens/Library/nowplaying.dart';
 import 'package:imbisha/Screens/Library/playlists.dart';
 import 'package:imbisha/Screens/Library/recent.dart';
-import 'package:imbisha/Screens/Login/auth.dart';
-import 'package:imbisha/Screens/Login/pref.dart';
 import 'package:imbisha/Screens/Player/audioplayer.dart';
 import 'package:imbisha/Screens/Settings/setting.dart';
 import 'package:imbisha/Services/audio_service.dart';
@@ -92,7 +90,7 @@ Future<void> openHiveBox(String boxName, {bool limit = false}) async {
     await Hive.openBox(boxName);
     throw 'Failed to open $boxName Box\nError: $error';
   });
-  // clear box if it grows large
+
   if (limit && box.length > 500) {
     box.clear();
   }
@@ -132,17 +130,15 @@ class _MyAppState extends State<MyApp> {
       setState(() {});
     });
 
-    // For sharing or opening urls/text coming from outside the app while the app is in the memory
     _intentDataStreamSubscription = ReceiveSharingIntent.getTextStream().listen(
       (String value) {
         handleSharedText(value, navigatorKey);
       },
       onError: (err) {
-        // print("ERROR in getTextStream: $err");
+
       },
     );
 
-    // For sharing or opening urls/text coming from outside the app while the app is closed
     ReceiveSharingIntent.getInitialText().then(
       (String? value) {
         if (value != null) handleSharedText(value, navigatorKey);
@@ -202,12 +198,11 @@ class _MyAppState extends State<MyApp> {
         GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: const [
-        Locale('en', ''), // English, no country code
-        Locale('fr', ''), // French
+        Locale('en', ''),
+        Locale('fr', ''),
       ],
       routes: {
         '/': (context) => initialFuntion(),
-        '/pref': (context) => const PrefScreen(),
         '/setting': (context) => const SettingPage(),
         '/about': (context) => AboutScreen(),
         '/playlists': (context) => PlaylistScreen(),

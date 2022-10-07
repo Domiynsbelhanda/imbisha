@@ -29,6 +29,8 @@ import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -77,7 +79,7 @@ class _HomePageState extends State<HomePage> {
 
   void updateUserDetails(String key, dynamic value) {
     final userId = Hive.box('settings').get('userId') as String?;
-    SupaBase().updateUserDetails(userId, key, value);
+    // SupaBase().updateUserDetails(userId, key, value);
   }
 
   Future<bool> handleWillPop(BuildContext context) async {
@@ -225,7 +227,7 @@ class _HomePageState extends State<HomePage> {
                 checked,
                 boxNames,
                 path: value,
-                fileName: 'BlackHole_AutoBackup',
+                fileName: 'Imbisha_AutoBackup',
                 showDialog: false,
               );
             });
@@ -235,7 +237,7 @@ class _HomePageState extends State<HomePage> {
               checked,
               boxNames,
               path: autoBackPath,
-              fileName: 'BlackHole_AutoBackup',
+              fileName: 'Imbisha_AutoBackup',
               showDialog: false,
             );
           }
@@ -868,18 +870,10 @@ class _HomePageState extends State<HomePage> {
                         },
                         items: [
                           SalomonBottomBarItem(
-                            icon: const Icon(Icons.home_rounded),
-                            title: Text(AppLocalizations.of(context)!.home),
+                            icon: const Icon(Icons.my_library_music_rounded),
+                            title: Text(AppLocalizations.of(context)!.library),
                             selectedColor:
-                                Theme.of(context).colorScheme.secondary,
-                          ),
-                          SalomonBottomBarItem(
-                            icon: const Icon(Icons.trending_up_rounded),
-                            title: Text(
-                              AppLocalizations.of(context)!.topCharts,
-                            ),
-                            selectedColor:
-                                Theme.of(context).colorScheme.secondary,
+                            Theme.of(context).colorScheme.secondary,
                           ),
                           SalomonBottomBarItem(
                             icon: const Icon(MdiIcons.youtube),
@@ -888,10 +882,16 @@ class _HomePageState extends State<HomePage> {
                                 Theme.of(context).colorScheme.secondary,
                           ),
                           SalomonBottomBarItem(
-                            icon: const Icon(Icons.my_library_music_rounded),
-                            title: Text(AppLocalizations.of(context)!.library),
+                            icon: const Icon(Icons.search),
+                            title: Text(AppLocalizations.of(context)!.search),
                             selectedColor:
                                 Theme.of(context).colorScheme.secondary,
+                          ),
+                          SalomonBottomBarItem(
+                            icon: const Icon(Icons.settings),
+                            title: Text(AppLocalizations.of(context)!.settings),
+                            selectedColor:
+                            Theme.of(context).colorScheme.secondary,
                           ),
                         ],
                       ),

@@ -17,8 +17,6 @@ class LibraryPage extends StatefulWidget {
 class _LibraryPageState extends State<LibraryPage> {
   @override
   Widget build(BuildContext context) {
-    final double screenWidth = MediaQuery.of(context).size.width;
-    final bool rotated = MediaQuery.of(context).size.height < screenWidth;
     return ListView(
       physics: const BouncingScrollPhysics(),
       children: [
@@ -94,6 +92,10 @@ class _LibraryPageState extends State<LibraryPage> {
             Navigator.pushNamed(context, '/playlists');
           },
         ),
+
+        Container(
+          child: Text('Belhanda'),
+        )
       ],
     );
   }

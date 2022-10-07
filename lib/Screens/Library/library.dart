@@ -33,26 +33,6 @@ class _LibraryPageState extends State<LibraryPage> {
           backgroundColor: Colors.transparent,
           elevation: 0,
           automaticallyImplyLeading: false,
-          leading: (rotated && screenWidth < 1050)
-              ? null
-              : Builder(
-                  builder: (BuildContext context) {
-                    return Transform.rotate(
-                      angle: 22 / 7 * 2,
-                      child: IconButton(
-                        color: Theme.of(context).iconTheme.color,
-                        icon: const Icon(
-                          Icons.horizontal_split_rounded,
-                        ),
-                        onPressed: () {
-                          Scaffold.of(context).openDrawer();
-                        },
-                        tooltip: MaterialLocalizations.of(context)
-                            .openAppDrawerTooltip,
-                      ),
-                    );
-                  },
-                ),
         ),
         LibraryTile(
           title: AppLocalizations.of(context)!.nowPlaying,

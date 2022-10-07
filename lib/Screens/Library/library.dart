@@ -69,7 +69,7 @@ class _LibraryPageState extends State<LibraryPage> {
     tempPath ??= (await getTemporaryDirectory()).path;
 
       _songs = (await offlineAudioQuery.getSongs(
-        sortType: songSortTypes[2],
+        sortType: songSortTypes[1],
         orderType: songOrderTypes[1],
       ))
           .where(

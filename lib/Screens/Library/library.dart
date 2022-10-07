@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:hive/hive.dart';
 import 'package:imbisha/Screens/Library/liked.dart';
 import 'package:imbisha/Screens/LocalMusic/downed_songs.dart';
@@ -10,6 +11,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:on_audio_query/on_audio_query.dart';
 import 'package:path_provider/path_provider.dart';
 
+import '../../CustomWidgets/on_hover.dart';
 import '../../Helpers/audio_query.dart';
 
 class LibraryPage extends StatefulWidget {
@@ -244,6 +246,11 @@ class _AlbumsTabState extends State<AlbumsTab>
   @override
   Widget build(BuildContext context) {
     super.build(context);
+    double boxSize =
+    MediaQuery.of(context).size.height > MediaQuery.of(context).size.width
+        ? MediaQuery.of(context).size.width / 2
+        : MediaQuery.of(context).size.height / 2.5;
+    if (boxSize > 250) boxSize = 250;
     return GridView.builder(
       gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
           maxCrossAxisExtent: 200,
@@ -255,20 +262,83 @@ class _AlbumsTabState extends State<AlbumsTab>
       shrinkWrap: true,
       itemCount: widget.albumsList.length < 20 ? widget.albumsList.length : 20,
       itemBuilder: (context, index) {
-        return ListTile(
-          leading: OfflineAudioQuery.offlineArtworkWidget(
-            id: widget.albums[widget.albumsList[index]]![0].id,
-            type: ArtworkType.AUDIO,
-            tempPath: widget.tempPath,
-            fileName:
-            widget.albums[widget.albumsList[index]]![0].displayNameWOExt,
-          ),
-          title: Text(
-            widget.albumsList[index],
-            overflow: TextOverflow.ellipsis,
-          ),
-          subtitle: Text(
-            '${widget.albums[widget.albumsList[index]]!.length} ${AppLocalizations.of(context)!.songs}',
+        return GestureDetector(
+          child: SizedBox(
+            width: boxSize - 30,
+            child: HoverBox(
+              child: Card(
+                elevation: 5,
+                color: Colors.black,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(
+                    10.0,
+                  ),
+                ),
+                clipBehavior: Clip.antiAlias,
+                child: Image(
+                  image: FileImage(
+                      File(
+                          '${widget.tempPath}/${widget.albums[widget.albumsList[index]]![0].displayNameWOExt}.jpg'
+                      )
+                  ),
+                ),
+                ),
+              builder: (BuildContext context, bool isHover, Widget? child) {
+                return Card(
+                  color: isHover ? null : Colors.transparent,
+                  elevation: 0,
+                  margin: EdgeInsets.zero,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(
+                      10.0,
+                    ),
+                  ),
+                  clipBehavior: Clip.antiAlias,
+                  child: Column(
+                    children: [
+                      Stack(
+                        children: [
+                          SizedBox.square(
+                            dimension: isHover ? boxSize - 25 : boxSize - 30,
+                            child: child,
+                          ),
+                        ],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              widget.albumsList[index],
+                              textAlign: TextAlign.center,
+                              softWrap: false,
+                              overflow: TextOverflow.ellipsis,
+                              style: const TextStyle(
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                              Text(
+                                '${widget.albums[widget.albumsList[index]]!.length} ${AppLocalizations.of(context)!.songs}',
+                                textAlign: TextAlign.center,
+                                softWrap: false,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                  fontSize: 11,
+                                  color: Theme.of(context)
+                                      .textTheme
+                                      .caption!
+                                      .color,
+                                ),
+                              )
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
           ),
           onTap: () {
             Navigator.push(
